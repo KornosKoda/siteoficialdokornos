@@ -159,7 +159,7 @@
     text-shadow: 2px 2px 0 #000, 0 0 8px #fff;
 }
 .besouro-img {
-    max-width: 340px;
+    max-width: 520px;
     width: 100%;
     height: auto;
     display: block;
@@ -398,6 +398,25 @@
     right: 0;
     align-items: flex-end;
 }
+
+/* Botão 'Não clique' fixo no rodapé */
+.nao-clique-btn {
+    display: block;
+    margin: 40px auto;
+    padding: 18px 36px;
+    font-size: 1.4rem;
+    font-family: 'Comic Sans MS', Impact, Arial Black, Arial, sans-serif;
+    color: #fff;
+    background: linear-gradient(90deg, #ff0 0%, #f0f 100%);
+    border: 6px double #000;
+    border-radius: 12px;
+    box-shadow: 0 0 32px #000a, 4px 4px 0 #0ff, 8px 8px 0 #f00;
+    cursor: pointer;
+    text-shadow: 2px 2px 0 #000, 0 0 8px #fff;
+    letter-spacing: 2px;
+    transition: transform 120ms ease;
+}
+.nao-clique-btn:hover { transform: scale(1.03); }
 .ad-lateral {
     width: 150px;
     min-height: 60px;
