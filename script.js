@@ -310,4 +310,27 @@ window.onload = function() {
 	adsPopups.forEach((ad, i) => {
 		setTimeout(() => createAdPopup(ad), 500 + i * 400);
 	});
+	window.naoCliqueLinks = [
+		'https://chc.org.br/artigo/comedores-de-coco/',
+		'https://www.linkedin.com/in/felipegraffunder/?originalSubdomain=br',
+		'https://www.leagueoflegends.com/pt-br/',
+		'https://www.google.com/maps/@-19.773747,-47.9471571,3a,75y,322.73h,81.19t/data=!3m7!1e1!3m5!1s0UMHi5LHEn8359X7J_w3KQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D8.806847594704337%26panoid%3D0UMHi5LHEn8359X7J_w3KQ%26yaw%3D322.7301739423823!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D',
+		'https://www.atacadao.com.br',
+		'https://www.amazon.com.br/Vibrador-Sugador-Língua-Vibração-Lambida/dp/B0CBX6XNB4/ref=sr_1_1?__mk_pt_BR=ÅMÅŽÕÑ&crid=VUNENOZOIH4W&dib=eyJ2IjoiMSJ9.Fokzw9Mx-uD9XnVLrjbxPg8swBa3maX-QCTY1rNK612JRkeIYQwbG_54GPcdff-F0tkJ8nZXmfwoyf1zEZhxKvWrNYAZC1XKi8-x3AqhGVfvGZrfbiPCWgLPZKYeVWtdESfFbHWhZDjDWIITox66yhWByim-I5HSKK-nDmSdZroFTYhhtxJ0hFRlppjkFSEUfUNQpcmTbyxwpa6M_J24_oTvvtlFpHWAegLdtc1XuhLXZvsNZTCoQChqqKdQbpBww-4PMZ_pPsLYhIqYl533hAgRo5HGmIE0CGClwo3IBwY.pD6Ad2RDf05JWRm1bVbhHJhoHZqTTAg6-eQGSyBTrLQ&dib_tag=se&keywords=vibrador&qid=1765850027&sprefix=vibrad%2Caps%2C282&sr=8-1&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9',
+		'https://livrariapaulokogos.com.br',
+		'https://www.google.com/search?q=kkk&client=opera&hs=PW4&sca_esv=613707160b8c8479&udm=2&biw=1278&bih=634&sxsrf=AE3TifO4dSLbSC1GFvT08QfPqUXRpADflg%3A1765850080837&ei=4LtAafbBMtKD5OUPq_OwYQ&ved=2ahUKEwj2sa2WgMGRAxXSAbkGHas5LAwQ4dUDegQIBRAO&uact=5&oq=kkk&gs_lp=Egtnd3Mtd2l6LWltZyIDa2trMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBxAAGIAEGAoyBRAAGIAESOQGUABYAHABeACQAQCYAQCgAQCqAQC4AQPIAQCYAgGgAgaYAwCIBgGSBwExoAcAsgcAuAcAwgcDMi0xyAcFgAgA'
+	];
+	const naoBtn = document.getElementById('nao-clique-btn');
+	if (naoBtn) {
+		naoBtn.onclick = (e) => {
+			e.preventDefault();
+			if (!window.naoCliqueLinks || !window.naoCliqueLinks.length) return;
+			const idx = Math.floor(Math.random() * window.naoCliqueLinks.length);
+			const link = window.naoCliqueLinks[idx];
+			const win = window.open(link, '_blank');
+			if (!win) {
+				alert('O navegador bloqueou a abertura automática. Abra este link manualmente:\n' + link);
+			}
+		};
+	}
 };
