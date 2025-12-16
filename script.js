@@ -304,6 +304,28 @@ function startContadorVezes() {
 }
 
 window.onload = function() {
+	(function ensureFreshOncePerSession() {
+		try {
+			const sessionKey = 'kornos_cache_busted_v1';
+			if (!sessionStorage.getItem(sessionKey)) {
+				const url = new URL(window.location.href);
+				url.searchParams.set('cb', Date.now());
+				sessionStorage.setItem(sessionKey, '1');
+				window.location.replace(url.toString());
+			} else {
+				const url = new URL(window.location.href);
+				if (url.searchParams.has('cb')) {
+					url.searchParams.delete('cb');
+					window.history.replaceState({}, '', url.toString());
+				}
+				if ('caches' in window) {
+					caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k)))).catch(()=>{});
+				}
+			}
+		} catch (e) {
+			console.warn('Cache-bust script falhou', e);
+		}
+	})();
 	startContadorVezes();
 	renderMarquee();
 	renderAdsLaterais();
@@ -328,6 +350,9 @@ window.onload = function() {
 			const idx = Math.floor(Math.random() * window.naoCliqueLinks.length);
 			const link = window.naoCliqueLinks[idx];
 			const win = window.open(link, '_blank');
+			if (!win) {
+				alert('O navegador bloqueou a abertura automática. Abra este link manualmente:\n' + link);
+			}
 		};
 	}
 };
