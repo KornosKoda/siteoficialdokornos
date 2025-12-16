@@ -328,9 +328,6 @@ window.onload = function() {
 			const idx = Math.floor(Math.random() * window.naoCliqueLinks.length);
 			const link = window.naoCliqueLinks[idx];
 			const win = window.open(link, '_blank');
-			if (!win) {
-				alert('O navegador bloqueou a abertura automática. Abra este link manualmente:\n' + link);
-			}
 		};
 	}
 };
